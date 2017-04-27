@@ -74,6 +74,8 @@ function onPlayerStateChange(event) {
   if(event.data == YT.PlayerState.PLAYING) {
     acceptingInput = true;
     player.unMute()
+    showCensor();
+    hideCensor();
     toggleStatic();
   }
 }
@@ -102,8 +104,6 @@ soundManager.onready(function() {
 function toggleStatic() {
   $('#static').toggleClass('static-on');
   $('#static').toggleClass('static-off');
-  $('#censor-image').toggleClass('static-on');
-  $('#censor-image').toggleClass('static-off');
   soundManager.toggleMute('staticAudio');
 }
 
@@ -159,6 +159,14 @@ function nextVideo() {
 function playVideo(id) {
   player.loadVideoById(id);
   addToPrevWatched(id);
+}
+
+function hideCensor() {
+  $('#censor-image').fadeTo(10000, 0);
+}
+
+function showCensor() {
+  $('#censor-image').fadeTo(0, 1);
 }
 
 // Returns a randomly generated "seed" to use as a search term.
