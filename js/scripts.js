@@ -84,7 +84,7 @@ function onPlayerStateChange(event) {
 soundManager.onready(function() {
     var s = soundManager.createSound({
         id: 'staticAudio',
-        url: './public/static.mp3'
+        url: './public/space.mp3'
     });
     loopSound(s);
     function loopSound(sound) {
@@ -163,7 +163,7 @@ function playVideo(id) {
 }
 
 function hideCensor() {
-  $('#censor-image').fadeTo(10000, 0);
+  $('#censor-image').fadeTo(30000, 0);
 }
 
 function hideCensorRightNow() {
@@ -212,7 +212,7 @@ function getSearchSeed() {
 // Finds and immediately plays a video, then calls findAndStoreVideo().
 function findAndPlayVideo() {
   var word = getSearchSeed();
-  var requestStr = 'https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&q=' + word + '&type=video&maxResults=50&key=AIzaSyAHu80T94GGhKOzjBs9z5yr0KU8v48Zh60';
+  var requestStr = 'https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&q=' + word + '&type=video&eventType=live&maxResults=50&key=AIzaSyAHu80T94GGhKOzjBs9z5yr0KU8v48Zh60';
   $.ajax({
       type: "GET",
       url: requestStr,
@@ -282,7 +282,7 @@ function addToPrevWatched(videoId) {
 // Finds a video and stores its id in sessionStorage.
 function findAndStoreVideo() {
   var word = getSearchSeed();
-  var requestStr = 'https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&q=' + word + '&type=video&maxResults=50&key=AIzaSyAHu80T94GGhKOzjBs9z5yr0KU8v48Zh60';
+  var requestStr = 'https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&q=' + word + '&type=video&eventType=live&maxResults=50&key=AIzaSyAHu80T94GGhKOzjBs9z5yr0KU8v48Zh60';
   $.ajax({
       type: "GET",
       url: requestStr,
