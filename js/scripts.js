@@ -145,6 +145,7 @@ function goDeeper() {
 
 // Go to the next video. Called when the current video finishes or the user hits next.
 function nextVideo() {
+  hideCensorRightNow();
   var nextVideoId = sessionStorage.getItem('nextVideoId');
   if(nextVideoId === null) {
     findAndPlayVideo();
@@ -165,7 +166,13 @@ function hideCensor() {
   $('#censor-image').fadeTo(10000, 0);
 }
 
+function hideCensorRightNow() {
+  $('#censor-image').stop();
+  $('#censor-image').fadeTo(0, 0);
+}
+
 function showCensor() {
+  $('#censor-image').stop();
   $('#censor-image').fadeTo(0, 1);
 }
 
