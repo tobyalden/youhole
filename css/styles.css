@@ -31,4 +31,15 @@ body  {
 
 #player {
   z-index: -5;
+  position: fixed;
+}
+
+#censor {
+  z-index: 15;
+  position: fixed;
+}
+
+#censor-image {
+  width: 100vw;
+  height: 50px;
 }

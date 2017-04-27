@@ -33,12 +33,15 @@ function onYouTubeIframeAPIReady() {
     height: '390',
     width: '640',
     playerVars: {
-      'showinfo': 0,
+      'enablejsapi': 1,
+      'autoplay': 1,
+      'autohide': 2,
       'controls': 0,
       'disablekb': 0,
       'rel': 0,
       'showinfo': 0,
-      'modestbranding': 1
+      'modestbranding': 0,
+      'title': 0
     },
     events: {
       'onReady': onPlayerReady,
@@ -99,6 +102,8 @@ soundManager.onready(function() {
 function toggleStatic() {
   $('#static').toggleClass('static-on');
   $('#static').toggleClass('static-off');
+  $('#censor-image').toggleClass('static-on');
+  $('#censor-image').toggleClass('static-off');
   soundManager.toggleMute('staticAudio');
 }
 
